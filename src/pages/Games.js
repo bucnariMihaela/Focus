@@ -13,6 +13,7 @@ function Games(props) {
           howToPlay={game.howToPlay}
           infos={game.infos}
           url={game.url}
+          img = {game.img}
         ></GameCategory>
       ))}
     </div>

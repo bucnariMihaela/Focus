@@ -4,22 +4,27 @@ import { useParams } from "react-router-dom";
 function LetterGame() {
   const words = [
     [
-      { animal: "iepure", image: "/GamesCategoryImages/bunny.png" },
-      { animal: "găină", image: "/GamesCategoryImages/chicken.png" },
-      { animal: "pisică", image: "/GamesCategoryImages/cat.png" },
-      { animal: "câine", image: "/GamesCategoryImages/dog.png" },
-      { animal: "oaie", image: "/GamesCategoryImages/sheep.png" },
-      { animal: "vacă", image: "/GamesCategoryImages/cow.png" },
-      { animal: "porc", image: "/GamesCategoryImages/pig.png" },
-      { animal: "cal", image: "/GamesCategoryImages/horse.png" },
-      { animal: "rață", image: "/GamesCategoryImages/duck.png" },
-      { animal: "taur", image: "/GamesCategoryImages/bull.png" },
+      { word: "iepure", image: "/GamesCategoryImages/animals/bunny.png" },
+      { word: "găină", image: "/GamesCategoryImages/animals/chicken.png" },
+      { word: "pisică", image: "/GamesCategoryImages/animals/cat.png" },
+      { word: "câine", image: "/GamesCategoryImages/animals/dog.png" },
+      { word: "oaie", image: "/GamesCategoryImages/animals/sheep.png" },
+      { word: "vacă", image: "/GamesCategoryImages/animals/cow.png" },
+      { word: "porc", image: "/GamesCategoryImages/animals/pig.png" },
+      { word: "cal", image: "/GamesCategoryImages/animals/horse.png" },
+      { word: "rață", image: "/GamesCategoryImages/animals/duck.png" },
+      { word: "taur", image: "/GamesCategoryImages/animals/bull.png" },
     ],
-    [{ animal: "elefant" },
-    { animal: "rino" },
-    { animal: "zebra" },
-
-  ],
+    [
+      { word: "cerc", image:"/GamesCategoryImages/geometricFigures/circle.png" },
+      { word: "semicerc", image:"/GamesCategoryImages/geometricFigures/semicircle.png" },
+      { word: "pătrat", image:"/GamesCategoryImages/geometricFigures/square.png" },
+      { word: "dreptunghi",image:"/GamesCategoryImages/geometricFigures/rectangle.png" },
+      { word: "triunghi",image:"/GamesCategoryImages/geometricFigures/triangle.png" },
+      { word: "oval", image:"/GamesCategoryImages/geometricFigures/oval.png" },
+      { word: "romb", image: "/GamesCategoryImages/geometricFigures/rhomb.png"},
+      { word: "trapez", image:"/GamesCategoryImages/geometricFigures/trapeze.png" },
+    ],
   ];
 
   const { level } = useParams();
@@ -35,22 +40,21 @@ function LetterGame() {
 
   const [numberGuesses, setNumberGuesses] = useState(0);
 
-  const [maxGuesses, setMaxGuesse] = useState(2);
+  const [maxGuesses, setMaxGuesse] = useState(5);
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
   const restartGame = () => {
-
     let random = "";
     let randomWord = "";
-    
+
     if (level === "1") {
       random = words[0][Math.floor(Math.random() * words[0].length)];
     } else {
       random = words[1][Math.floor(Math.random() * words[1].length)];
     }
 
-    randomWord = random.animal;
+    randomWord = random.word;
 
     const randomLetterIndex = Math.floor(
       Math.random() * (randomWord.length - 2) + 1
@@ -113,7 +117,7 @@ function LetterGame() {
       ></input>
 
       <p> Your guess is: {guessedLetter}</p>
-      <img src={displayedImage} alt="bunny" width="300px" height="350px" />
+      <img src={displayedImage} alt="bunny" width="300px" height="300px" />
       {isCorrect ? (
         <p> You guessed correctly!</p>
       ) : (

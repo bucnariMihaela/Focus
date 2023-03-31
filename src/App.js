@@ -21,17 +21,18 @@ function App() {
     {
       id: "game2",
       name: "Letters",
-      image: "/GamesCategoryImages/math1.png",
+      image: "/GamesCategoryImages/letters.jpg",
       levels: 2,
       about: "Find the missing letter and form the word!",
       howToPlay: "Add the missing letter!",
       infos: "Age rating: 6+",
       url: "/letter",
+      img: "/GamesCategoryImages/farmAnimals.png",
     },
     {
       id: "game3",
-      name: "Game 3",
-      image: "/GamesCategoryImages/math1.png",
+      name: "Emotions",
+      image: "/GamesCategoryImages/faces.jpg",
       levels: 3,
       about: "Look over this figures and quess which one is the one you need!",
       howToPlay: "Select the one that fits the quest!",
@@ -48,7 +49,7 @@ function App() {
             index
             element={<Games games={gamesCategories}></Games>}
           ></Route>
-          <Route path="/math" element={<MathGame></MathGame>}></Route>
+          <Route path="/math/:level" element={<MathGame></MathGame>}></Route>
           <Route path="/letter/:level" element={<LetterGame></LetterGame>}></Route>
           <Route path="/figure" element={<FigureGame></FigureGame>}></Route>
         </Route>

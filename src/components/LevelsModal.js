@@ -17,7 +17,9 @@ function LevelsModal(props) {
   return (
     <div>
       <button onClick={handelModalOpen}>
-        <FaPlay style={{ fontSize: "50px ", color: "black", padding: "20px" }} />
+        <FaPlay
+          style={{ fontSize: "50px ", color: "black", padding: "20px" }}
+        />
       </button>
 
       {showModal && (
@@ -27,24 +29,27 @@ function LevelsModal(props) {
               <h2>{props.message}</h2>
             </header>
             <div className="fundal-alb">
-            <div className="content-levels">
-            <Link to={props.url+"/1"}><h2>level 1</h2></Link>
-            <Link to={props.url+"/2"}><h2>level 2</h2></Link>
+              <div className="content-levels">
+                <Link to={props.url + "/1"}>
+                  <h2>level 1</h2>
+                </Link>
+                <Link to={props.url + "/2"}>
+                  <h2>level 2</h2>
+                </Link>
+              </div>
+              <div className="aboutGame">
+                <h1>ABOUT GAME</h1>
+                <p> {props.about}</p>
+              </div>
+              <div className="howToPlay">
+                <h1>HOW TO PLAY</h1>
+                <p>{props.howToPlay}</p>
+              </div>
+              <div className="gameInfo">
+                <h1>GAME INFO</h1>
+                <p> {props.infos}</p>
+              </div>
             </div>
-            <div className="aboutGame"> 
-            <h1>ABOUT GAME</h1>
-            <p> {props.about}</p>
-            </div>
-            <div className="howToPlay"> 
-            <h1>HOW TO PLAY</h1>
-            <p>{props.howToPlay}</p>
-            </div>
-            <div className="gameInfo">
-              <h1>GAME INFO</h1>
-              <p> {props.infos}</p>
-            </div>
-            </div>
-
           </div>
         </div>
       )}
