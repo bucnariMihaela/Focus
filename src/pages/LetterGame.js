@@ -17,7 +17,7 @@ function LetterGame() {
     ],
     [{ animal: "elefant" },
     { animal: "rino" },
-    { animal: "elefant" },
+    { animal: "zebra" },
 
   ],
   ];
