@@ -17,7 +17,7 @@ function LevelsModal(props) {
   return (
     <div>
       <button onClick={handelModalOpen}>
-        <FaPlay style={{ fontSize: "50px", color: "black", padding: "20px" }} />
+        <FaPlay style={{ fontSize: "50px ", color: "black", padding: "20px" }} />
       </button>
 
       {showModal && (

@@ -15,7 +15,11 @@ function LetterGame() {
       { animal: "rață", image: "/GamesCategoryImages/duck.png" },
       { animal: "taur", image: "/GamesCategoryImages/bull.png" },
     ],
-    [{ animal: "elefant" }],
+    [{ animal: "elefant" },
+    { animal: "rino" },
+    { animal: "elefant" },
+
+  ],
   ];
 
   const { level } = useParams();
@@ -72,7 +76,7 @@ function LetterGame() {
 
   const guesedLetterChangeHandler = (event) => {
     event.preventDefault();
-    //is called whenever the user enters a new letter into the field
+    //is called whenever the user enters a new letter into the field.
     const newLetter = event.target.value;
     if (newLetter.length > 1) {
       // verific daca lungimea ii mai mare ca 1, insemnand ca am adaugat mai mult de 1 litera
