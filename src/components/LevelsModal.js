@@ -32,6 +32,12 @@ function LevelsModal(props) {
               <div className="content-levels">
                 <Link to={props.url + "/1"}>
                   <h2>level 1</h2>
+                  <img
+                    src={props.img}
+                    alt="farm animals"
+                    width="150px"
+                    height="150px"
+                  ></img>
                 </Link>
                 <Link to={props.url + "/2"}>
                   <h2>level 2</h2>

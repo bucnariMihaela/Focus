@@ -14,7 +14,7 @@ function GameCategory(props) {
       </div>
       <div className="overlay">
         <div className="text">This game has {props.levels} levels</div>
-        <LevelsModal message ="alege nivelul" about = {props.about} howToPlay = {props.howToPlay} infos = {props.infos} url = {props.url}></LevelsModal>
+        <LevelsModal message ="alege nivelul" about = {props.about} howToPlay = {props.howToPlay} infos = {props.infos} url = {props.url} img={props.img}></LevelsModal>
         
       </div>
     </div>
