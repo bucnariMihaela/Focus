@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./LetterGame.css"
 
 function LetterGame() {
   const words = [
@@ -62,6 +63,7 @@ function LetterGame() {
 
     const wordWithoutLetter =
       randomWord.substring(0, randomLetterIndex) +
+      
       "_" +
       randomWord.substring(randomLetterIndex + 1, randomWord.length);
 
@@ -106,28 +108,29 @@ function LetterGame() {
   }, [isCorrect]);
 
   return (
-    <div>
-      <p>LEVEL: {level}</p>
-      <h1>{displayedWords}</h1>
-      <input
+    <div className="containerLetter">
+      <h1 >NIVEL: {level}</h1> 
+      <h2> Încercarea ta: {guessedLetter}</h2>
+      <img src={displayedImage} alt="bunny" width="300px" height="300px" />
+      {isCorrect ? (
+        <h1> Ai ghicit corect!</h1>
+      ) : (
+        <h1>
+          {" "}
+          Ai ghicit de {numberGuesses} ori, din {maxGuesses} .
+          </h1>
+      )}
+      <h1 style = {{fontSize: '5em'}}>{displayedWords}</h1>
+      <input className="inputLetter"
         type="text"
         value={guessedLetter}
         onChange={guesedLetterChangeHandler}
-        disabled={isCorrect || numberGuesses === maxGuesses} // dupa ||  // we check if the number of guesses made so far is greater or equal to maxguesses, and if so we disable the input field using disabled attribute
+        disabled={isCorrect || numberGuesses === maxGuesses}
+        style={{ width: 15 }} // dupa ||  // we check if the number of guesses made so far is greater or equal to maxguesses, and if so we disable the input field using disabled attribute
       ></input>
 
-      <p> Your guess is: {guessedLetter}</p>
-      <img src={displayedImage} alt="bunny" width="300px" height="300px" />
-      {isCorrect ? (
-        <p> You guessed correctly!</p>
-      ) : (
-        <p>
-          {" "}
-          You made {numberGuesses} guesses out of {maxGuesses}.
-        </p>
-      )}
-      <button onClick={restartGame} disabled={buttonDisabled}>
-        Next Round
+      <button className="letter-button" onClick={restartGame} disabled={buttonDisabled}>
+        URMĂTORUL
       </button>
     </div>
   );

@@ -26,34 +26,43 @@ function LevelsModal(props) {
         <div className="backdrop">
           <div className="modal">
             <header id="h-modal">
-              <h2>{props.message}</h2>
+              <h1>{props.message}</h1>
             </header>
             <div className="fundal-alb">
               <div className="content-levels">
                 <Link to={props.url + "/1"}>
-                  <h2>level 1</h2>
+                  <h2>Nivel 1</h2>
                   <img
-                    src={props.img}
+                    src={props.imgL1}
                     alt="farm animals"
-                    width="150px"
-                    height="150px"
+                    width="200px"
+                    height="200px"
                   ></img>
+                  <button className="modal-button">JOACĂ</button>
                 </Link>
                 <Link to={props.url + "/2"}>
-                  <h2>level 2</h2>
+                  <h2>Nivel 2</h2>
+                  <img
+                    src={props.imgL2}
+                    alt="faces figures"
+                    width="200px"
+                    height="200px"
+                  ></img>
+                  <button className="modal-button">JOACĂ</button>
                 </Link>
               </div>
               <div className="aboutGame">
-                <h1>ABOUT GAME</h1>
+                <h1>DESPRE JOC</h1>
                 <p> {props.about}</p>
-              </div>
-              <div className="howToPlay">
-                <h1>HOW TO PLAY</h1>
+          
+                <h1>CUM SĂ JOCI</h1>
                 <p>{props.howToPlay}</p>
-              </div>
-              <div className="gameInfo">
-                <h1>GAME INFO</h1>
+
+                <h1>INFORMAȚII</h1>
                 <p> {props.infos}</p>
+              
+                  <button className="modal-button" onClick ={handelModalClose}>ÎNAPOI</button>
+            
               </div>
             </div>
           </div>

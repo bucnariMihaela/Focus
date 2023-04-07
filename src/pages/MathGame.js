@@ -1,6 +1,7 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./MathGame.css";
 
 function MathGame() {
   const { level } = useParams();
@@ -29,22 +30,31 @@ function MathGame() {
   let secondNumberRandom = 0;
 
   const restartGame = () => {
-    firstNumberRandom = Math.floor(Math.random() * 50) + 1; //creez primu nr random
+    firstNumberRandom = Math.floor(Math.random() * 10) + 1; //creez primu nr random
 
     secondNumberRandom = Math.floor(Math.random() * firstNumberRandom) + 1; // creez al doilea nr random
 
-    const randomOperation = Math.floor(Math.random() * 2);
     let seq;
-    if (randomOperation === 0) {
-      seq = firstNumberRandom + secondNumberRandom;
-      setCorrectNumber(secondNumberRandom);
-      setOperator("addition");
+    if (level === "1") {
+        const randomOperation = Math.floor(Math.random() * 2);
+      if (randomOperation === 0) {
+        seq = firstNumberRandom + secondNumberRandom;
+        setCorrectNumber(secondNumberRandom);
+        setOperator("addition");
+        
+      } else if (randomOperation === 1) {
+        seq = firstNumberRandom - secondNumberRandom;
+        setCorrectNumber(firstNumberRandom);
+        setOperator("substraction");
+        console.log("merge");
+      }
     } else {
-      seq = firstNumberRandom - secondNumberRandom;
-      setCorrectNumber(firstNumberRandom);
-      setOperator("substraction");
+        seq = firstNumberRandom * secondNumberRandom;
+        setCorrectNumber(secondNumberRandom);
+        setOperator("multiplication");
+        console.log("jsdjbsjhd");
+      
     }
-
     setFirstNumber(firstNumberRandom);
     setSecondNumber(secondNumberRandom);
 
@@ -61,13 +71,12 @@ function MathGame() {
 
     const newNumber = parseInt(event.target.value, 10);
 
-    if (event.target.value === '') {
-        setGuessedNumber('');
-        return;
+    if (event.target.value === "") {
+      setGuessedNumber("");
+      return;
     }
 
     if (!Number.isInteger(newNumber)) {
-        console.log("sdas")
       return;
     }
 
@@ -94,21 +103,20 @@ function MathGame() {
   }, [isCorrect]);
 
   return (
-    <div>
-      <p>LEVEL: {level}</p>
-      {correctNumber}
-      <h1>Resolve this simple ecuation!</h1>
-      <div>
+    <div className="containerMath">
+      <h1>LEVEL: {level}</h1>
+      <h1>Rezolvă această ecuație!</h1>
+      <div style = {{fontSize :'3em'}}>
         {firstNumber &&
           secondNumber &&
           operator === "addition" && ( //checks if they have been set before displaying their values.
             <>
               {firstNumber} +{" "}
               <span>
-                <input
+                <input className="inputNumber"
                   value={guessedNumber}
                   onChange={onChange}
-                  style={{width:15}}
+                  style={{ width: 15 }}
                   disabled={isCorrect || numberGuesses === maxGuesses}
                 ></input>
               </span>{" "}
@@ -119,25 +127,46 @@ function MathGame() {
           secondNumber &&
           operator === "substraction" && ( //checks if they have been set before displaying their values.
             <>
-              {firstNumber} - <span>
-                <input
+              {firstNumber} -{" "}
+              <span>
+                <input className="inputNumber"
                   value={guessedNumber}
                   onChange={onChange}
-                  style={{width:15}}
+                  style={{ width: 15 }}
                   disabled={isCorrect || numberGuesses === maxGuesses}
                 ></input>
-              </span>{" "} = {sequence};
+              </span>{" "}
+              = {sequence};
+            </>
+          )}
+        {firstNumber &&
+          secondNumber &&
+          operator === "multiplication" && ( //checks if they have been set before displaying their values.
+            <>
+              {firstNumber} *{" "}
+              <span>
+                <input className="inputNumber"
+                  value={guessedNumber}
+                  onChange={onChange}
+                  style={{ width: 15 }}
+                  disabled={isCorrect || numberGuesses === maxGuesses}
+                ></input>
+              </span>{" "}
+              = {sequence};
             </>
           )}
       </div>
-      <button onClick={guessedNumberChangeHandler}>OK</button>
+      <button className="math-button" onClick={guessedNumberChangeHandler}>OK</button>
       {isCorrect ? (
-        <p> You guessed correctly!</p>
+        <h1>Ai ghicit corect!</h1>
       ) : (
-        <p> keep guessing, number of guesses {parseInt(numberGuesses)}</p>
+        <h1>
+          {" "}
+          Ai ghicit de {parseInt(numberGuesses)} ori, din {maxGuesses} .
+          </h1>
       )}
-      <button onClick={restartGame} disabled={buttonDisabled}>
-        Next Round
+      <button className="math-button" onClick={restartGame} disabled={buttonDisabled}>
+        URMĂTORUL
       </button>
     </div>
   );
