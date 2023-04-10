@@ -20,8 +20,8 @@ function App() {
       Limbi: Română, Engleză
       Preț: Gratuit`,
       url: "/math",
-      imgL1: "/GamesCategoryImages/plusMinus.png",
-      imgL2: "/GamesCategoryImages/multiplication.png",
+      imgL1: "/GamesCategoryImages/MathGame/plusMinus.png",
+      imgL2: "/GamesCategoryImages/MathGame/multiplication.png",
     },
     {
       id: "game2",
@@ -37,8 +37,8 @@ function App() {
               Preț: Gratuit
               `,
       url: "/letter",
-      imgL1: "/GamesCategoryImages/farmAnimals.png",
-      imgL2: "/GamesCategoryImages/facesfigures.png",
+      imgL1: "/GamesCategoryImages/LetterGame/farmAnimals.png",
+      imgL2: "/GamesCategoryImages/LetterGame/facesfigures.png",
     },
     {
       id: "game3",
@@ -49,6 +49,8 @@ function App() {
       howToPlay: "Select the one that fits the quest!",
       infos: "Age rating: 6+",
       url: "/figure",
+      imgL1:"",
+    
     },
   ];
 
@@ -65,7 +67,7 @@ function App() {
             path="/letter/:level"
             element={<LetterGame></LetterGame>}
           ></Route>
-          <Route path="/figure" element={<FigureGame></FigureGame>}></Route>
+          <Route path="/figure/:level" element={<FigureGame></FigureGame>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

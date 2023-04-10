@@ -51,8 +51,7 @@ function MathGame() {
     } else {
         seq = firstNumberRandom * secondNumberRandom;
         setCorrectNumber(secondNumberRandom);
-        setOperator("multiplication");
-        console.log("jsdjbsjhd");
+        
       
     }
     setFirstNumber(firstNumberRandom);
