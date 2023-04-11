@@ -7,7 +7,7 @@ function LetterGame() {
     [
       { word: "iepure", image: "/GamesCategoryImages/LetterGame/animals/bunny.png" },
       { word: "găină", image: "/GamesCategoryImages/LetterGame/animals/chicken.png" },
-      { word: "pisică", image: "/GamesCategoryImagesLetterGame/animals/cat.png" },
+      { word: "pisică", image: "/GamesCategoryImages/LetterGame/animals/cat.png" },
       { word: "câine", image: "/GamesCategoryImages/LetterGame/animals/dog.png" },
       { word: "oaie", image: "/GamesCategoryImages/LetterGame/animals/sheep.png" },
       { word: "vacă", image: "/GamesCategoryImages/LetterGame/animals/cow.png" },

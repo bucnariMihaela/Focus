@@ -44,7 +44,7 @@ function App() {
       id: "game3",
       name: "EMOȚII",
       image: "/GamesCategoryImages/faces.jpg",
-      levels: 3,
+      levels: 1,
       about: "Look over this figures and quess which one is the one you need!",
       howToPlay: "Select the one that fits the quest!",
       infos: "Age rating: 6+",

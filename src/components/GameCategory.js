@@ -11,7 +11,9 @@ function GameCategory(props) {
         <img src={props.image} alt="math" width="300px" />
       </div>
       <div className="overlay">
-        <div className="text">Acest joc are {props.levels} nivele</div>
+        <div className="text">
+          Acest joc are {props.levels}{" "} nivele
+        </div>
         <LevelsModal
           message="Alege nivelul dorit: "
           about={props.about}
