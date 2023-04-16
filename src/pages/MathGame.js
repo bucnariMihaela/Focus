@@ -22,7 +22,7 @@ function MathGame() {
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
-  const [maxGuesses, setMaxGuesse] = useState(5);
+  const [maxGuesses, setMaxGuesses] = useState(5);
 
   const [operator, setOperator] = useState(0);
 
@@ -46,11 +46,11 @@ function MathGame() {
         seq = firstNumberRandom - secondNumberRandom;
         setCorrectNumber(firstNumberRandom);
         setOperator("substraction");
-        console.log("merge");
       }
     } else {
         seq = firstNumberRandom * secondNumberRandom;
         setCorrectNumber(secondNumberRandom);
+        setOperator("multiplication");
         
       
     }
@@ -75,11 +75,13 @@ function MathGame() {
       return;
     }
 
+
     if (!Number.isInteger(newNumber)) {
       return;
     }
 
     setGuessedNumber(newNumber);
+    setMaxGuesses(5);
   };
 
   const guessedNumberChangeHandler = (event) => {
@@ -103,7 +105,7 @@ function MathGame() {
 
   return (
     <div className="containerMath">
-      <h1>LEVEL: {level}</h1>
+      <h1>NIVEL: {level}</h1>
       <h1>Rezolvă această ecuație!</h1>
       <div style = {{fontSize :'3em'}}>
         {firstNumber &&
@@ -116,7 +118,7 @@ function MathGame() {
                   value={guessedNumber}
                   onChange={onChange}
                   style={{ width: 15 }}
-                  disabled={isCorrect || numberGuesses === maxGuesses}
+                  disabled={isCorrect || numberGuesses === maxGuesses }
                 ></input>
               </span>{" "}
               = {sequence};

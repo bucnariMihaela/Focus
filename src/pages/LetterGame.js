@@ -111,7 +111,7 @@ function LetterGame() {
     <div className="containerLetter">
       <h1 >NIVEL: {level}</h1> 
       <h2> Încercarea ta: {guessedLetter}</h2>
-      <img src={displayedImage} alt="bunny" width="300px" height="300px" />
+      <img src={displayedImage} alt="bunny" width="300" height="300" />
       {isCorrect ? (
         <h1> Ai ghicit corect!</h1>
       ) : (

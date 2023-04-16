@@ -35,8 +35,8 @@ function LevelsModal(props) {
                   <img
                     src={props.imgL1}
                     alt="farm animals"
-                    width="200px"
-                    height="200px"
+                    width="200"
+                    height="200"
                   ></img>
                   <button className="modal-button">JOACĂ</button>
                 </Link>
@@ -45,8 +45,8 @@ function LevelsModal(props) {
                   <img
                     src={props.imgL2}
                     alt="faces figures"
-                    width="200px"
-                    height="200px"
+                    width="200"
+                    height="200"
                   ></img>
                   <button className="modal-button">JOACĂ</button>
                 </Link>

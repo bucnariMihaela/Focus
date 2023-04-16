@@ -4,8 +4,9 @@ import './NavigationBar.css'
 const NavigationBar = () => {
   return (
     <>
+    <header className="header">
       <nav>
-        <ul>
+        <ul className="list">
           <li>
             <Link to="/">Games</Link>
           </li>
@@ -15,9 +16,13 @@ const NavigationBar = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/auth">Log in/Sign in</Link>
+          </li>
+          
         </ul>
       </nav>
-
+      </header>
       <Outlet />
     </>
   )
