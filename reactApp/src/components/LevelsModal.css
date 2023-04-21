@@ -1,0 +1,101 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-image:url('/Home/bk.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div-suprem {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+.overlay{
+  z-index:30;
+}
+
+.modal {
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 1000;
+    padding-top:20px;
+    background-color: white;
+   
+
+}
+
+
+  #h-modal {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  }
+
+  .content-levels {
+    display: flex;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
+
+  .fundal-alb {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    padding-bottom: 10px;
+
+  }
+
+  
+
+  .aboutGame {
+    display: flex;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+  }
+
+.modal-button {
+  background-color: #4CAF50; 
+  border: none; 
+  color: white; 
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 16px;
+  border-radius: 5px; 
+  cursor: pointer; 
+  }

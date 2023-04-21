@@ -1,0 +1,44 @@
+.container-figure{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.figure-button {
+    background-color: rgb(56, 160, 224); 
+    border: none; 
+    color: white; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+       font-size: 16px;
+    border-radius: 7px; 
+    cursor: pointer;
+    margin-left: 30px;
+
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px; 
+}
+
+.next-button {
+    background-color: rgb(224, 151, 56); 
+    color: white; 
+    padding: 10px 20px;
+    text-align: center; 
+    text-decoration: none; 
+     font-size: 16px;
+    border-radius: 7px; 
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 20px;
+
+}

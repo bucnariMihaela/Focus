@@ -1,0 +1,34 @@
+.containerLetter {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.inputLetter{
+    width: 2rem;
+/* height: 3rem; */
+    font-size: 3.5rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.letter-button {
+    background-color: #4CAF50; 
+    border: none; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px;
+    border-radius: 7px; 
+    cursor: pointer;
+    margin-left: 30px;
+}
