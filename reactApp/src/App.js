@@ -1,6 +1,10 @@
 import "./App.css";
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import Games from "./pages/Games";
 import MathGame from "./pages/MathGame";
@@ -10,10 +14,16 @@ import MatchingGame from "./pages/MatchingGame";
 import Error from "./pages/Error";
 import Root from "./pages/Root";
 import Authentication from "./pages/Authentication";
-import AuthForm from "./components/AuthForm";
+import ProtectedRoute from "./components/ProtectedRoute";
 
+export const MyContext = React.createContext({
+  key: "",
+  setKey: () => {},
+});
 
 function App() {
+  const [key, setKey] = React.useState("");
+  const value = React.useMemo(() => ({ key, setKey }), [key]);
   const gamesCategories = [
     {
       id: "game1",
@@ -82,25 +92,62 @@ function App() {
     },
   ];
 
-  
-const router = createBrowserRouter([
-  {
-    path: "/",
-   element: <Root />,
-    errorElement: <Error></Error>,
-    children: [
-      { path: "/",element: <Home games={gamesCategories}></Home> },
-     // { path: "/games", element: <Games games={gamesCategories}/> },
-      { path: "/auth", element: <Authentication></Authentication> },
-      { path: "/math/:level", element: <MathGame></MathGame> },
-      { path: "/letter/:level", element: <LetterGame></LetterGame> },
-      { path: "/figure/:level", element: <FigureGame></FigureGame>},
-    ],
-  },
-]);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      errorElement: <Error></Error>,
+      children: [
+        {
+          path: "/",
+          element: (
+            <ProtectedRoute key="home">
+              <Home games={gamesCategories}></Home>
+            </ProtectedRoute>
+          ),
+        },
+        // { path: "/games", element: <Games games={gamesCategories}/> },
+        { path: "/auth", element: <Authentication></Authentication> },
+        {
+          path: "/math/:level",
+          element: (
+            <ProtectedRoute key="math">
+              <MathGame></MathGame>
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/letter/:level",
+          element: (
+            <ProtectedRoute key="let">
+              <LetterGame></LetterGame>
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/figure/:level",
+          element: (
+            <ProtectedRoute key="fig">
+              <FigureGame></FigureGame>
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: "/matching/:level",
+          element: (
+            <ProtectedRoute key="match">
+              <MatchingGame></MatchingGame>
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+  ]);
 
   return (
-    <RouterProvider router={router} />
+    <MyContext.Provider value={value}>
+      <RouterProvider router={router} />
+    </MyContext.Provider>
   );
 }
 
